@@ -1,4 +1,4 @@
-/*
+﻿/*
  * @Author: Paco
  * @Date:   2017-02-08
  * @lastmodify 2017-03-17
@@ -184,7 +184,7 @@ layui.define(['jquery', 'layer', 'form'], function(exports) {
 
                     }
                 } else if ($(options.content).find('textarea[name=' + val[0] + ']').length > 0) {
-                    $(options.content).find('textarea[name=' + val[0] + ']').val(val[0]);
+                    $(options.content).find('textarea[name=' + val[0] + ']').val(val[1]);
                 } else if ($(options.content).find('select[name=' + val[0] + ']').length > 0) {
                     $(options.content).find('select[name=' + val[0] + ']').val(val[1]);
                 } else {
