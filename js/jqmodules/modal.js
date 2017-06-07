@@ -1,4 +1,4 @@
-﻿/*
+/*
  * @Author: Paco
  * @Date:   2017-02-08
  * @lastmodify 2017-03-17
@@ -71,7 +71,7 @@ layui.define(['jquery', 'layer', 'form'], function(exports) {
             return;
         }
         if (typeof params === 'string') {
-            params = JSON.parse(params)
+            params = JSON.parse(unescape(params));
         }
         var options = $.extend({}, this.options, params);
 
@@ -174,7 +174,7 @@ layui.define(['jquery', 'layer', 'form'], function(exports) {
                 var obj = $(options.content).find('input[name=' + val[0] + ']');
                 if (obj.length > 0) {
                     if (obj.prop('type') == "text" || obj.prop('type') == "hidden") {
-                        obj.val(val[1]);
+                        obj.val(unescape(val[1]));
                     } else if (obj.prop('type') == "checkbox" || obj.prop('type') == "radio") {
                         obj.each(function(i, n) {
                             if ($(n).val() == val[1]) {
@@ -184,11 +184,11 @@ layui.define(['jquery', 'layer', 'form'], function(exports) {
 
                     }
                 } else if ($(options.content).find('textarea[name=' + val[0] + ']').length > 0) {
-                    $(options.content).find('textarea[name=' + val[0] + ']').val(val[1]);
+                    $(options.content).find('textarea[name=' + val[0] + ']').val(unescape(val[1]));
                 } else if ($(options.content).find('select[name=' + val[0] + ']').length > 0) {
                     $(options.content).find('select[name=' + val[0] + ']').val(val[1]);
                 } else {
-                    inputHtml += '<input type="hidden" name="' + val[0] + '" value="' + val[1] + '" />';
+                    inputHtml += '<input type="hidden" name="' + val[0] + '" value="' + unescape(val[1]) + '" />';
                 }
             }
             form.render();
